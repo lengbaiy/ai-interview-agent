@@ -260,6 +260,31 @@ ai-interview/
 
 ## 启动方式
 
+### 一键启动（推荐）
+
+安装并启动 Docker Desktop 后，在仓库根目录执行：
+
+```bash
+docker compose up -d --build
+```
+
+启动完成后访问：
+
+- 用户端：http://localhost:3000
+- 管理端：http://localhost:3001
+- 后端健康检查：http://localhost:8006/api/v1/config/health
+
+停止项目：
+
+```bash
+docker compose down
+```
+
+核心服务无需 `.env` 即可启动。如需使用 AI 出题、评分、Embedding、邮件或对象存储功能，
+请复制 `ai-interview-backend/.env.example` 为 `ai-interview-backend/.env`，并填写对应 API Key。
+
+### 分别启动各服务
+
 ### 1. 启动后端
 
 进入：
