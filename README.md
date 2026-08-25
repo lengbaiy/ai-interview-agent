@@ -1,7 +1,62 @@
-# AI Interview
+<div align="center">
 
-一个面向求职场景的 **AI 模拟面试系统**。  
-项目围绕“**简历解析 -> 岗位匹配 -> RAG 出题 -> AI 评分 -> 面试报告**”构建了完整闭环，重点体现了我在 **AI 应用开发、工程化落地、RAG 设计、Agent 工作流编排** 方面的能力。
+# AI Interview Agent
+
+### 从简历解析到面试报告的一站式 AI 模拟面试平台
+
+**Resume Parsing → Position Agent → RAG Questions → AI Evaluation → Interview Report**
+
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Vue](https://img.shields.io/badge/Vue-3-4FC08D?logo=vuedotjs&logoColor=white)](https://vuejs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-pgvector-4169E1?logo=postgresql&logoColor=white)](https://github.com/pgvector/pgvector)
+[![Docker](https://img.shields.io/badge/Docker-One--Command-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![DeepSeek](https://img.shields.io/badge/LLM-DeepSeek-4D6BFE)](https://www.deepseek.com/)
+
+[快速开始](#快速开始) · [功能预览](#功能预览) · [系统架构](#系统架构) · [模型与数据导入](docs/model-and-data-import-guide.md) · [部署指南](deployment-guide.md)
+
+</div>
+
+> 这不是一个单一 Prompt Demo。项目包含用户端、管理端、FastAPI 后端、岗位匹配 Agent、两套 RAG、异步任务、向量数据库与 Docker 一键部署，覆盖完整的 AI 应用工程链路。
+
+## 快速开始
+
+只需安装并启动 Docker Desktop：
+
+```bash
+git clone https://github.com/lengbaiy/ai-interview-agent.git
+cd ai-interview-agent
+docker compose up -d --build
+```
+
+| 服务 | 地址 | 用途 |
+| --- | --- | --- |
+| 用户端 | <http://localhost:3000> | 上传简历、岗位匹配、模拟面试、查看报告 |
+| 管理端 | <http://localhost:3001> | 管理题库、知识库、岗位模板和面试记录 |
+| 后端健康检查 | <http://localhost:8006/api/v1/config/health> | 检查 API、PostgreSQL 和 Redis 状态 |
+
+核心服务无需 `.env` 即可启动。使用 AI 出题、评分和向量检索前，请按照[模型配置与数据导入指南](docs/model-and-data-import-guide.md)填写 DeepSeek 与 DashScope API Key。
+
+## 功能预览
+
+| 用户端首页 | 简历上传 |
+| --- | --- |
+| ![User dashboard](project-screenshots/01-project-home.png) | ![Resume upload](project-screenshots/06-resume-upload.png) |
+
+| 岗位匹配 Agent | AI 模拟面试 |
+| --- | --- |
+| ![Position matching](project-screenshots/12-agent-matching.png) | ![Interview session](project-screenshots/10-interview-session.png) |
+
+| 面试报告 | RAG 知识库管理 |
+| --- | --- |
+| ![Interview report](project-screenshots/11-interview-report.png) | ![Knowledge base](project-screenshots/03-knowledge-base.png) |
+
+<details>
+<summary><strong>查看更多项目截图</strong></summary>
+
+项目包含 17 张完整流程截图，见 [`project-screenshots/`](project-screenshots/)。
+
+</details>
 
 ---
 
@@ -258,7 +313,7 @@ ai-interview/
 
 ---
 
-## 启动方式
+## 详细启动与开发方式
 
 > 模型选择、API Key、知识库导入和题库 JSON 格式请查看：
 > [模型配置与数据导入指南](docs/model-and-data-import-guide.md)
