@@ -274,6 +274,10 @@ cd ai-interview-backend
 docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
 ```
 
+开发环境已提供数据库与 Redis 的安全默认配置，无需 `.env` 也能启动核心服务。
+如需使用 AI 出题、评分、Embedding、邮件或对象存储功能，请先复制
+`ai-interview-backend/.env.example` 为 `ai-interview-backend/.env`，再填写对应 API Key。
+
 ### 2. 启动用户端前端
 
 进入：
