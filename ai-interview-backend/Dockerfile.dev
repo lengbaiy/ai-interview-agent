@@ -48,4 +48,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8006/api/v1/config/health || exit 1
 
 # 启动命令
-CMD ["sh", "-c", "python -m app.agents.setup_storage && python main.py"]
+CMD ["sh", "-c", "alembic upgrade head && python -m app.agents.setup_storage && python main.py"]

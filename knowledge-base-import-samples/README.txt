@@ -1,5 +1,13 @@
-这里是为后台两个Rag准备的文档数据
-1.Rag题库：准备了Python后端和Python AI应用
-2.Rag知识库：只准备了Python知识文档
+Import-ready data for the two RAG systems in the admin console.
 
-也可以让AI生成自己需要的Rag题库文档或者Rag知识库文档，在后台上传并向量化
+Question bank JSON:
+- python_backend_questions_20.json
+- python_ai_application_questions_20.json
+- agent_development_questions_15.json
+
+Knowledge base Markdown:
+- python-knowledge-base.md
+- ai-agent-engineering-knowledge.md
+
+Import these files from the admin console. Question and document embeddings are
+generated asynchronously by Celery and require a valid DashScope API key.

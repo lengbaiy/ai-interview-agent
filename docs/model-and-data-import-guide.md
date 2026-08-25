@@ -109,6 +109,7 @@ KNOWLEDGE_MIN_SCORE=0.3
 
 ```text
 knowledge-base-import-samples/python-knowledge-base.md
+knowledge-base-import-samples/ai-agent-engineering-knowledge.md
 ```
 
 知识库向量化需要有效的 `DASHSCOPE_API_KEY`，并依赖 Redis 和 Celery Worker 正常运行。
@@ -155,12 +156,15 @@ knowledge-base-import-samples/python-knowledge-base.md
 | `tags` | 否 | 字符串数组，用于分类和检索 |
 | `source` | 否 | 数据来源，默认 `manual` |
 
-仓库提供两份可直接导入的示例：
+仓库提供三份可直接导入的示例：
 
 ```text
 knowledge-base-import-samples/python_backend_questions_20.json
 knowledge-base-import-samples/python_ai_application_questions_20.json
+knowledge-base-import-samples/agent_development_questions_15.json
 ```
+
+其中 `agent_development_questions_15.json` 覆盖 Tool Calling、状态与工作流、记忆、RAG、多 Agent、结构化输出、安全与可观测性；`python_ai_application_questions_20.json` 覆盖 AI 应用工程和 RAG。当前版本实机截图使用后两份数据，共 35 道题，全部完成向量化。
 
 题目会先写入数据库，再由 Celery 异步生成 Embedding。向量化同样需要有效的 `DASHSCOPE_API_KEY`。
 

@@ -37,26 +37,19 @@ docker compose up -d --build
 
 核心服务无需 `.env` 即可启动。使用 AI 出题、评分和向量检索前，请按照[模型配置与数据导入指南](docs/model-and-data-import-guide.md)填写 DeepSeek 与 DashScope API Key。
 
-## 功能预览
+## 当前版本实机预览
 
-| 用户端首页 | 简历上传 |
+以下截图由 `docker compose` 启动当前代码后自动采集，展示的题库、知识库与检索结果均来自实际数据库，而非旧版本素材。
+
+| AI / Agent 题库（35 题，全部向量化） | 知识库（已切分并索引） |
 | --- | --- |
-| ![User dashboard](project-screenshots/01-project-home.png) | ![Resume upload](project-screenshots/06-resume-upload.png) |
+| ![AI and Agent question bank](project-screenshots/current/04-question-bank.png) | ![Indexed knowledge base](project-screenshots/current/05-knowledge-base.png) |
 
-| 岗位匹配 Agent | AI 模拟面试 |
+| RAG 实际检索结果 | 管理后台 |
 | --- | --- |
-| ![Position matching](project-screenshots/12-agent-matching.png) | ![Interview session](project-screenshots/10-interview-session.png) |
+| ![RAG retrieval results](project-screenshots/current/06-rag-retrieval-test.png) | ![Admin dashboard](project-screenshots/current/03-admin-dashboard.png) |
 
-| 面试报告 | RAG 知识库管理 |
-| --- | --- |
-| ![Interview report](project-screenshots/11-interview-report.png) | ![Knowledge base](project-screenshots/03-knowledge-base.png) |
-
-<details>
-<summary><strong>查看更多项目截图</strong></summary>
-
-项目包含 17 张完整流程截图，见 [`project-screenshots/`](project-screenshots/)。
-
-</details>
+截图可用 `node scripts/capture-current-ui.mjs` 从本机运行中的当前版本重新生成。
 
 ---
 
@@ -346,7 +339,7 @@ docker compose down
 - 对话模型：DeepSeek `deepseek-chat`
 - Embedding：DashScope `text-embedding-v3`（1024 维）
 
-仓库中的 `knowledge-base-import-samples/` 提供知识库 Markdown 和两份题库 JSON 示例。
+仓库中的 `knowledge-base-import-samples/` 提供 Python、AI 应用、Agent 开发题库 JSON，以及 Python 与 AI Agent 工程知识库 Markdown，可在管理端直接导入。
 
 ### 分别启动各服务
 

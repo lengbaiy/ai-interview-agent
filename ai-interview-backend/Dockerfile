@@ -57,4 +57,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:${API_PORT:-8001}/api/v1/config/health')" || exit 1
 
 # Start command
-CMD ["sh", "-c", "python -m app.agents.setup_storage && python main.py"]
+CMD ["sh", "-c", "alembic upgrade head && python -m app.agents.setup_storage && python main.py"]
