@@ -260,6 +260,9 @@ ai-interview/
 
 ## 启动方式
 
+> 模型选择、API Key、知识库导入和题库 JSON 格式请查看：
+> [模型配置与数据导入指南](docs/model-and-data-import-guide.md)
+
 ### 一键启动（推荐）
 
 安装并启动 Docker Desktop 后，在仓库根目录执行：
@@ -282,6 +285,13 @@ docker compose down
 
 核心服务无需 `.env` 即可启动。如需使用 AI 出题、评分、Embedding、邮件或对象存储功能，
 请复制 `ai-interview-backend/.env.example` 为 `ai-interview-backend/.env`，并填写对应 API Key。
+
+默认模型：
+
+- 对话模型：DeepSeek `deepseek-chat`
+- Embedding：DashScope `text-embedding-v3`（1024 维）
+
+仓库中的 `knowledge-base-import-samples/` 提供知识库 Markdown 和两份题库 JSON 示例。
 
 ### 分别启动各服务
 
